@@ -22,6 +22,7 @@ function getAnimals(req, res) {
 function getOneAnimal(req, res) {
     const id = req.params.id;
     const oneAnimal = animals.get(id);
+    console.log(oneAnimal);
     res.status(200).json(oneAnimal);
 }
 

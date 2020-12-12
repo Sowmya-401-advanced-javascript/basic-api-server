@@ -1,6 +1,6 @@
 'use strict';
 
-const { server } = require('../src/server-phase3.js');
+const { server } = require('../src/server');
 const supertest = require('supertest');
 const mockRequest = supertest(server);
 
@@ -12,8 +12,10 @@ describe('web server', () => {
   });
 
   it('can add a record', async () => {
-    const response = await mockRequest.post('/animals');
-    expect(response.status).toBe(404);
+    const response = await mockRequest.post('/animals').send({name: 'Elephant'});
+    console.log(response.body);
+    expect(response.status).toBe(200);
+    expect(response.body.name).toBe('Elephant');
 });
 
 it('can get a list of records', async () => {
