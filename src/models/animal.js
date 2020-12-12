@@ -34,8 +34,9 @@ class AnimalModel {
 
     delete(id) {
         if(!id) {return null}
-    
-        // Todo
+        this.db = this.db.filter(function deleteDbItems(record) {
+            return parseInt(record.id) !== parseInt(id);
+        });
         return null;
     }
 }
