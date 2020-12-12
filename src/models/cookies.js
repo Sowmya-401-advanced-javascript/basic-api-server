@@ -19,17 +19,23 @@ class CookiesModel {
         return obj;
     }
 
-    update(id, obj) {
+    update(newId, cookiesObj) {
         if(!id) {return null}
-    
-        // Todo
-        return obj;
+        console.log("what is the update?");
+        cookiesObj.id = newId;
+
+        // find this obj in the database
+        let cookiesObjInDb = this.db.find(record => record.id === newId);
+        cookiesObjInDb.id = newId
+        
+        return cookiesObj;
     }
 
     delete(id) {
         if(!id) {return null}
-    
-        // Todo
+        this.db = this.db.filter(function deleteDbItems(recoed) {
+            return parseInt(recoed.id) !== parseInt(id);
+        })
         return null;
     }
 }

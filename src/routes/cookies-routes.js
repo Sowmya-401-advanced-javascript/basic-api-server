@@ -32,11 +32,15 @@ function createCookie(req, res) {
 }
 
 function updateCookie(req, res) {
-    res.status(200).send('updating cookie');
+    const newIDToBeGiven = req.params.id;
+    const cookieObjToBeUpdated = req.body;
+    const newUpdatedCookie = cookies.update(newIDToBeGiven, cookieObjToBeUpdated);
+    res.status(200).json(newUpdatedCookie);
 }
 
 function deleteCookie(req, res) {
-    res.status(200).send('deleting cookie');
+    cookies.delete(req.params.id);
+    res.status(200).json('deleting cookie');
 }
 
 module.exports = cookieRouter;

@@ -43,7 +43,8 @@ function updateAnimal(req, res) {
 }
 
 function deleteAnimal(req, res) {
-    res.status(200).send('deleting animal');
+    animals.delete(req.params.id);
+    res.status(200).json('deleting animal');
 }
 
 module.exports = router;
