@@ -7,7 +7,8 @@ class AnimalModel {
     get(id) {
         if(id) {
             // to get one animal
-            return this.db.find(record => record.id === id);
+            console.log(typeof parseInt(id));
+            return this.db.find(record => record.id === parseInt(id));
         } else {
             return this.db;
         }
