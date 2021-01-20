@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 // Middleware
@@ -10,7 +11,7 @@ const animalRoutes = require('./routes/animal-routes');
 const cookiesRoutes = require('./routes/cookies-routes');
 const todoRoutes = require('./routes/todo-routes');
 
-
+app.use(cors());
 app.use(express.json());
 app.use(animalRoutes);
 app.use(cookiesRoutes);
