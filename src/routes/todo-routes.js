@@ -15,6 +15,7 @@ router.delete('/todo/:id', deleteTodoItem);
 
 // RESTful route handlers
 function getTodoItems(req, res) {
+    console.log('Route has been hit');
     const allTodo = todo.get()
     res.status(200).json(allTodo);
 }
